@@ -14,7 +14,6 @@ array_of_bins.each do |bin|
     Site.create(address: bin["address"], borough: bin["borough"], name: bin["park_site_name"], website: "https://www1.nyc.gov/assets/dsny/site/home", latitude: bin["latitude"], longitude: bin["longitude"], rating: 0, accepted_items: "paper,cardboard, plastic, glass, cartons", image: "https://upload.wikimedia.org/wikipedia/en/0/08/DSNY_logo_2016.jpg", hours: "7am-3pm", twitter: "https://twitter.com/nycsanitation?lang=en", ig: "https://www.instagram.com/nycsanitation/?hl=en", facebook: "https://www.facebook.com/nycsanitation/")
 end
 
-
 response = RestClient.get 'https://data.cityofnewyork.us/resource/qnjm-wvu5.json'
 array_of_textiles = JSON.parse(response)
 
@@ -22,9 +21,6 @@ array_of_textiles.each do |textile|
     # puts textile["address"]
     Site.create(address: textile["address"], borough: textile["borough"], name: textile["vendor_name"], website: textile["website"], latitude: textile["latitude"], longitude: textile["longitude"], rating: 0, accepted_items: textile["items_accepted"], image: "https://static.dezeen.com/uploads/2016/08/new-york-2020-skyline_dezeen_ss-852x609.jpg", hours: "9am-5pm", twitter: "https://twitter.com/wearablecollect?lang=en", ig: "https://www.instagram.com/wearablecollections/?hl=en", facebook: " https://www.facebook.com/wearablecollections/services/?ref=page_internal")
 end
-
-
-
 
 response = RestClient.get 'https://data.cityofnewyork.us/resource/wshr-5vic.json'
 array_of_e_waste = JSON.parse(response)

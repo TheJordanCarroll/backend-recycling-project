@@ -1,4 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-    attributes :name, :address, :borough, :image, :username, :password, :email
-    belongs_to :user_site
+    attributes :id, :name, :address, :borough, :image, :username, :password, :email
+    has_many :user_sites
 end

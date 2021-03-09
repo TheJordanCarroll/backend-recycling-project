@@ -1,7 +1,6 @@
 class UserSitesController < ApplicationController
   def index
     user_sites=UserSite.all
-
     render json: user_sites
   end
 
@@ -16,6 +15,8 @@ class UserSitesController < ApplicationController
   end
 
   def show
+    user_site = UserSite.find(params[:id])
+    render json: user_site
   end
 
   # def edit
@@ -25,10 +26,13 @@ class UserSitesController < ApplicationController
   end
 
   def destroy
+    user_site = UserSite.find(params[:id])
+    user_site.destroy
+    render json: user_site
   end
 
   private
-    def user_site_params
-        params.permit(:user_id, :site_id)
-    end
+  def user_site_params
+      params.permit(:id, :user_id, :site_id)
+  end
 end
