@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   def index
+    categories=Category.all
+    render json: categories
   end
 
   def new
@@ -9,6 +11,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    category = Category.find(params[:id])
+    render json: category
   end
 
   def edit
@@ -18,5 +22,10 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def category_params
+      params.permit(:id, :name, :image, :video, :description)
   end
 end
