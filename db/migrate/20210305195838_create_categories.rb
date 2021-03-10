@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :image
       t.string :video
-      t.string :description
+      t.string :description, array: true
 
       t.timestamps
     end
