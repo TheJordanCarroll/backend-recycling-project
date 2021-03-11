@@ -10,47 +10,29 @@ response = RestClient.get 'https://data.cityofnewyork.us/resource/sxx4-xhzg.json
 array_of_bins = JSON.parse(response)
 
 array_of_bins.each do |bin|
-    # puts bin["longi tude"] 
-    Site.create(address: bin["address"], borough: bin["borough"], name: bin["park_site_name"], website: "https://www1.nyc.gov/assets/dsny/site/home", latitude: bin["latitude"], longitude: bin["longitude"], rating: 0, accepted_items: "paper,cardboard, plastic, glass, cartons", image: "https://upload.wikimedia.org/wikipedia/en/0/08/DSNY_logo_2016.jpg", hours: "7am-3pm", twitter: "https://twitter.com/nycsanitation?lang=en", ig: "https://www.instagram.com/nycsanitation/?hl=en", facebook: "https://www.facebook.com/nycsanitation/")
+    Site.create(address: bin["address"], borough: bin["borough"], name: bin["park_site_name"], website: "https://www1.nyc.gov/assets/dsny/site/home", latitude: bin["latitude"], longitude: bin["longitude"], rating: 0, accepted_items: "paper,cardboard, plastic, glass, cartons", image: "https://www.gothamgazette.com/images/trash_baskets.jpeg", hours: "7am-3pm", twitter: "https://twitter.com/nycsanitation?lang=en", ig: "https://www.instagram.com/nycsanitation/?hl=en", facebook: "https://www.facebook.com/nycsanitation/")
 end
 
 response = RestClient.get 'https://data.cityofnewyork.us/resource/qnjm-wvu5.json'
 array_of_textiles = JSON.parse(response)
 
 array_of_textiles.each do |textile|
-    # puts textile["address"]
-    Site.create(address: textile["address"], borough: textile["borough"], name: textile["vendor_name"], website: textile["website"], latitude: textile["latitude"], longitude: textile["longitude"], rating: 0, accepted_items: textile["items_accepted"], image: "https://static.dezeen.com/uploads/2016/08/new-york-2020-skyline_dezeen_ss-852x609.jpg", hours: "9am-5pm", twitter: "https://twitter.com/wearablecollect?lang=en", ig: "https://www.instagram.com/wearablecollections/?hl=en", facebook: " https://www.facebook.com/wearablecollections/services/?ref=page_internal")
+    Site.create(address: textile["address"], borough: textile["borough"], name: textile["vendor_name"], website: textile["website"], latitude: textile["latitude"], longitude: textile["longitude"], rating: 0, accepted_items: textile["items_accepted"], image: "https://www.farmersalmanac.com/wp-content/uploads/2020/11/Recycle-Clothing-Clothes-i534114024.jpeg", hours: "9am-5pm", twitter: "https://twitter.com/wearablecollect?lang=en", ig: "https://www.instagram.com/wearablecollections/?hl=en", facebook: " https://www.facebook.com/wearablecollections/services/?ref=page_internal")
 end
 
 response = RestClient.get 'https://data.cityofnewyork.us/resource/wshr-5vic.json'
 array_of_e_waste = JSON.parse(response)
 
 array_of_e_waste.each do |waste|
-    # puts textile["address"]
-    Site.create(address: waste["address"], borough: waste["borocd"], name: waste["dropoff_sitename"], website: "https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request", latitude: waste["latitude"], longitude: waste["longitude"], rating: 0, accepted_items: "electronics", image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Radio_City_Music_Hall_Panorama.jpg", hours: "9am-5pm", twitter: "https://twitter.com/nysdec?lang=en", ig: "https://www.instagram.com/nysdec/?hl=en", facebook: " https://www.facebook.com/NYSDEC/")
+    Site.create(address: waste["address"], borough: waste["borocd"], name: waste["dropoff_sitename"], website: "https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request", latitude: waste["latitude"], longitude: waste["longitude"], rating: 0, accepted_items: "electronics", image: "https://images.squarespace-cdn.com/content/v1/5c6b165c16b6401a8c4b505a/1550525226000-WS3IYOLZFKOZW9GFPJ94/ke17ZwdGBToddI8pDm48kHH9S2ID7_bpupQnTdrPcoF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0nQwvinDXPV4EYh2MRzm-RRB5rUELEv7EY2n0AZOrEupxpSyqbqKSgmzcCPWV5WMiQ/electronics+recycling+franklin+tn.jpeg?format=2500w", hours: "9am-5pm", twitter: "https://twitter.com/nysdec?lang=en", ig: "https://www.instagram.com/nysdec/?hl=en", facebook: " https://www.facebook.com/NYSDEC/")
 end
 
 
 
-# puts bin["address"] 
-# puts bin["borough"] 
-# puts bin["park_site_name"]
-# website: "https://www1.nyc.gov/assets/dsny/site/home"
-# puts bin["latitude"]
-# puts bin["longitude"] 
-# rating:"0"
-# accepted_items: "paper,cardboard, plastic, glass, cartons"
-# image: "https://upload.wikimedia.org/wikipedia/en/0/08/DSNY_logo_2016.jpg" 
-# hours: "7am-3pm"
-# twitter: "https://twitter.com/nycsanitation?lang=en"
-# ig: "https://www.instagram.com/nycsanitation/?hl=en"
-# facebook: "https://www.facebook.com/nycsanitation/"
-
 User.create(name: "Oscar", username: "oscar123", password: "abc123", email: "oscarthegrouch@gmail.com", address: "123 Sesame Street", borough: "Manhattan", image: "https://thinkchristian-webassets.imgix.net/articleImages/2019/sesame-street-at-50-craft.jpg?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=500&ixlib=php-1.1.0&q=80&w=800&s=fccd8dc1bbdd22d711ef73af868a65e5")
 User.create(name: "Captain Planet", username: "captain123", password: "abc123", email: "captainplanet@gmail.com", address: "123 Planet Street", borough: "Brooklyn", image: "https://pbs.twimg.com/profile_images/939549969958051840/zs3ndSvV_400x400.jpg")
 
-# Category.create(name: "Paper", video: "https://www.youtube.com/watch?v=RR_218EtLJU", description: "newspapers, magazines, catalogs, phone books, mixed paper white and colored paper (lined, copier, computer; staples are ok) mail and envelopes (any color; window envelopes are ok) receipts paper bags (handles ok) wrapping paper soft-cover books (phone books, paperbacks, comics, etc.; no spiral bindings) (schools should follow their school book recycling procedures)", image: "https://www.treehugger.com/thmb/WsGI9o0uPXy4CnoZcAgFkMTnfas=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/106055560-56a2ac893df78cf77278b056.jpg" )
-# Category.create(name: "Cardboard", video: "https://www.youtube.com/watch?v=Rlvd-dIAHCE", description: "cardboard egg cartons cardboard trays smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging) pizza boxes (remove and discard soiled liner; recycle little plastic supporter with rigid plastics) paper cups (waxy lining ok if cups are empty and clean; recycle plastic lids with rigid plastics) corrugated cardboard boxes (flattened and tied together with sturdy twine)", image: "https://blog.cuyahogarecycles.org/wp-content/uploads/2018/11/cardboard_mainpost.jpg" )
+
 
 Category.create(name: "Cardboard", video: "https://www.youtube.com/watch?v=Rlvd-dIAHCE&t=3s", description:  ["To find a public recycling bin in your borough, use the Recycling Sites tab on the nav bar above.", "Cardboard egg cartons", "Cardboard trays", "Smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging)", "Pizza boxes (remove and discard soiled liner; recycle little plastic supporter with rigid plastics)", "Paper cups (waxy lining ok if cups are empty and clean; recycle plastic lids with rigid plastics)", "Corrugated cardboard boxes (flattened and tied together with sturdy twine)"], image: "https://www.homelectrical.com/sites/default/files/styles/original_image/public/images/product/blg/blg-cardboard_recycle_diy.jpg")
 Category.create(name: "Paper", video: "https://www.youtube.com/watch?v=rn9UsSafWHI&t=5s", description: ["Newspapers, magazines, catalogs, phone books, mixed paper", "White and colored paper (lined, copier, computer; staples are ok)", "Mail and envelopes (any color; window envelopes are ok)", "Receipts", "Paper bags (handles ok)", "Wrapping paper", "Soft-cover books (phone books, paperbacks, comics, etc.; no spiral bindings) (schools should follow their school  book recycling procedures)", "To find a public recycling bin in your borough, use the Recycling Sites tab on the nav bar above."], image: "https://www.clipartkey.com/mpngs/m/207-2073943_transparent-paper-recycle-png.png" )
